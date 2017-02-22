@@ -16,5 +16,8 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     compile 'org.mapstruct:mapstruct-jdk8:1.1.0.Final'
+    compile group: 'de.greenrobot', name: 'eventbus', version: '2.4.1'
+    // https://mvnrepository.com/artifact/com.google.guava/guava
+    compile group: 'com.google.guava', name: 'guava', version: '21.0'
     apt 'org.mapstruct:mapstruct-processor:1.1.0.Final'
 }
