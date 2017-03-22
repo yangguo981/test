@@ -7,17 +7,44 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
 }
 
+compileJava {
+    options.compilerArgs << '-Aorg.glassfish.hk2.metadata.location=META-INF/hk2-locator/acme'
+}
+
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     compile 'org.mapstruct:mapstruct-jdk8:1.1.0.Final'
-    compile group: 'de.greenrobot', name: 'eventbus', version: '2.4.1'
+    apt 'org.mapstruct:mapstruct-processor:1.1.0.Final'
     // https://mvnrepository.com/artifact/com.google.guava/guava
     compile group: 'com.google.guava', name: 'guava', version: '21.0'
-    apt 'org.mapstruct:mapstruct-processor:1.1.0.Final'
+
+    compile files('/Users/ychai/workspace/downloaded_jars/bc-fips-1.0.0.jar')
+    compile files('/Users/ychai/workspace/downloaded_jars/bcmail-fips-1.0.0.jar')
+    compile files('/Users/ychai/workspace/downloaded_jars/bcpg-fips-1.0.0.jar')
+    compile files('/Users/ychai/workspace/downloaded_jars/bcpkix-fips-1.0.0.jar')
+
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.2'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.8.2'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.2'
+
+    // https://mvnrepository.com/artifact/org.mapstruct/mapstruct-jdk8
+    compile group: 'org.mapstruct', name: 'mapstruct-jdk8', version: '1.1.0.Final'
+
+    compile group: 'org.mapstruct', name: 'mapstruct-processor', version: '1.1.0.Final'
+    compile group: 'org.mapstruct', name: 'mapstruct', version: '1.1.0.Final'
+
+    // https://mvnrepository.com/artifact/org.glassfish.hk2/hk2-maven
+    compile group: 'org.glassfish.hk2', name: 'hk2', version: '2.5.0-b36'
+
+    // https://mvnrepository.com/artifact/org.glassfish.hk2/hk2-metadata-generator
+    compile group: 'org.glassfish.hk2', name: 'hk2-metadata-generator', version: '2.4.0-b31'
+
+
 }
